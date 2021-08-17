@@ -1,0 +1,132 @@
+#include<stdio.h>
+1)int main()
+{
+
+	 printf("%d\n",1==5==5);//printf fun execution from right to left
+	 // for assignment operator associativity is from left to right
+	 //((1==5)==5)-> 0==5 ->0
+	 
+2)	 int i =0;
+   printf("%d %d\n",i,i++);// first i++ execute it is postincrement so first value will assign and then increment
+   // i++ ->i=0 ->i++-> 1 value will pass
+  // output= 1,0
+  
+ 3) int x=5;
+   printf("%d %d %d\n",x++,x++,x++);// output 7 6 5
+   // in post increment 1st value will assign after that increment var
+    /*     7+1=8     6+1=7     5+1=6
+       x++, x++, x++
+          |    |   |
+op:      7    6     5   
+*/
+4)int y=2;
+  // printf("%d ",++y++);// error: ++2 we cant use inc/dec with constants
+   printf("%d\n",y++);// but here 2++ -> it will assigned y=2 so we get output
+   
+   
+  5)  int k=1;
+   printf("%d==1 is ""%s\n",k,k==1?"TRUE":"FALSE");
+   /* ternary operator 1st condition will check if condition is true then after question part will executes
+   if condition is false after colon part will execute
+   k==1 -> 1==1 -> TRUE */
+  6)  int i=5;
+   i=i++ - --i + ++i;
+   printf("%d\n",i);//output=6
+   /* i++ - --i     +       ++i
+       5      6-1=5      5+1=6
+       5 - 5 + 6
+           6
+           */
+           
+ 7)  int a=7;
+   printf("%d\n",a+=a+=a-=6);//assignment operator R to L output
+   /*               a=a+2         a=a+1     a=a-6
+                     2+2         1+1          7-6=1
+                      4         2                 a=1
+                      */
+
+ 8)int x=10,y=5,p,q;
+   p=x>9; // 10>9 -> True
+   q=p||(x=5,y=10);// in OR opertor if left part is true no need to check right part ans is 1
+   printf("%d %d %d\n",q,x,y); // q=1 x=10 y=5
+   
+  9)  int x=2,y=1;
+   y+=x<<=2;     //            
+   printf("%d %d\n",x,y); // output x=8 y=9
+   /*      y=y+8        x=x<<2(<< will perform multiplication 
+              1+8        x<<1=4
+               y= 9     x<<2=8
+                          x=8       */
+                          
+                          
+ 10)    int x=2,y=4,z;
+    z=y++*x++|y--;//  4*2|4 ->8|4 ->13
+    printf("%d\n",z);//output=13 
+11)int a=5,b=6,c=7,d;
+    d=a&=b&=c&&a;
+    printf("%d\n",d); //output =0
+    /* c&&a= 7&&5 =>1
+    b=b&1=> 6&1 =>0
+    d=a&0=>anything & zero=zero
+    */
+    
+    
+ 12)    int i=10;
+    i=(10<10)?(10>=10)?(10<=10)?1:2:3:4;
+    printf("%d\n",i);
+ans:4
+         
+13)int a=10,b=20;
+    a=(a>5||b=6?40:50);
+printf("%d\n",a);
+ans: error lvalue req as left operand of assignment if we keep (b=6?40:50) we get output 20 as it is or only one condition is checked
+    
+
+
+14) printf("%x\n",-1>>4);
+    printf("%x\n",-1<<4);
+ans:ffffffff
+fffffff0
+-1>>4->11111111 delete right 4 bit and left shift add 4 onces to right 1111111111111111
+-1<<4->11111111 delete left 4 bit and right shift and 4 zeros to right 1111111111110000
+
+15) int x=7;
+    x=(x<<=x%2);//x<<1
+    printf("%d\n",x); 
+ans: 14
+
+16) int a=2,b=5,c=1;
+    printf("%d\n",(b>=a>=c?1:0));
+ans: 1
+c?1:0=>1
+a=a>1=>1
+b=b>a=>5>1=>1
+
+17) int a=5;
+    a=a-~a +1;
+    printf("%d\n",a);
+ans=12
+~a=~5= -6
+a=5-(-6)+1=12
+
+18) int a,b,c,d,x;
+    a=b=c=1;
+    x=--a||++b*(3-1)/2&&b*(--c/3);
+    printf("%d\n",x);
+ans:0||2*2/2&&2*0 
+     0||2&&0  
+     0||0 x=0
+
+
+
+19)/int a=10;
+    int b = -5;
+    int c = 2.5;
+    printf("%d %d",sizeof(a) + sizeof((++b) *c, b)) ans= 4+4=8
+
+
+20) int i=5;
+    i=i++ - i;/* 5-6=-1 
+    printf("%d",i); ans=-1
+                                     
+}
